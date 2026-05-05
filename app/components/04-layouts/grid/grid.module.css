@@ -1,0 +1,34 @@
+@value containers: '../../../styles/modules/container.module.css';
+@value --breakpoints: '../../../styles/modules/breakpoints.module.css';
+@value --bp-small, --bp-large from --breakpoints;
+
+@layer layouts {
+	.grid {
+		display: grid;
+		gap: var(--spacing-m);
+		grid-template-columns: repeat(6, 1fr);
+
+		@media (--bp-small) {
+			grid-template-columns: repeat(12, 1fr);
+		}
+
+		@media (--bp-large) {
+			gap: var(--spacing-l);
+		}
+	}
+
+	.minContainer,
+	.maxContainer {
+		--container: var(--container-size);
+
+		composes: container from containers;
+	}
+
+	.minContainer {
+		--container-size: var(--hd-alias-container-min);
+	}
+
+	.maxContainer {
+		--container-size: var(--hd-alias-container-max);
+	}
+}

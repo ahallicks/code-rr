@@ -1,0 +1,33 @@
+@value --bp-extra-tiny: width >= 375px;
+@value --bp-extra-tiny_max: width <= 374px;
+@value --bp-tiny: width >= 600px;
+@value --bp-tiny_max: width <= 599px;
+@value --bp-small: width >= 768px;
+@value --bp-small_max: width <= 767px;
+@value --bp-medium: width >= 960px;
+@value --bp-medium_max: width <= 959px;
+@value --bp-medium-large: width >= 1280px;
+@value --bp-medium-large_max: width <= 1279px;
+@value --bp-large: width >= 1440px;
+@value --bp-large_max: width <= 1439px;
+@value --bp-extra_large: width >= 1920px;
+@value --bp-extra_large_max: width <= 1919px;
+
+/* stylelint-disable */
+:export {
+	extra_tiny: --bp-extra_tiny;
+	extra_tiny_max: --bp-extra_tiny_max;
+	tiny: --bp-tiny;
+	tiny_max: --bp-tiny_max;
+	small: --bp-small;
+	small_max: --bp-small_max;
+	medium: --bp-medium;
+	medium_max: --bp-medium_max;
+	medium_large: --bp-medium-large;
+	medium_large_max: --bp-medium-large_max;
+	large: --bp-large;
+	large_max: --bp-large_max;
+	extra_large: --bp-extra_large;
+	extra_large_max: --bp-extra_large_max;
+}
+/* stylelint-enable */

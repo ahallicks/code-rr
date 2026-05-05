@@ -1,0 +1,8 @@
+@layer molecules {
+	.base {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-m);
+		padding: var(--spacing-m);
+	}
+}

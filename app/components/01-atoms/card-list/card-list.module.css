@@ -1,0 +1,14 @@
+@layer atoms {
+	.base {
+		display: grid;
+		gap: var(--spacing-l);
+		grid-template-columns: repeat(1, 1fr);
+		inline-size: 100%;
+	}
+
+	@media (width >= 980px) {
+		.base {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+}

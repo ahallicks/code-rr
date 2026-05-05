@@ -1,0 +1,17 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+ 
+import * as GridStories from './grid.stories.tsx';
+ 
+<Meta of={GridStories} />
+ 
+# Grid
+ 
+A grid system to layout content within a page or component.
+
+The grid is structured to follow the same set of rules as defined within [Figma](https://www.figma.com/design/hJZOyLuraIpPQ7MaqaN1jo/HD-Design-System?node-id=5-168).
+
+The grid system starts out with a 6 column grid for small screens and switches to a 12 column grid for tablet sized screens and larger. On larger screens the size of the gap between each column increases from 16px to 20px.
+
+<Canvas of={GridStories.Grid} />
+
+<Controls />

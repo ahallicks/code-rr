@@ -1,0 +1,91 @@
+@layer base, layouts, templates, atoms, molecules, organisms;
+
+:root {
+	--font-family-primary: 'Inter', sans-serif;
+	--primary-color: #5090d0;
+	--secondary-color: #f0f0f0;
+	--light-color: #fff;
+	--text-color: #333;
+	--border-radius: 8px;
+	--spacing-s: 8px;
+	--spacing-m: 16px;
+	--spacing-l: 24px;
+	--spacing-xl: 32px;
+	--base-size: 16px;
+	--width-container: 1200px;
+	--container-min: 960px;
+	--container-max: 1240px;
+
+	/* allows transitions in keyframes */
+
+	interpolate-size: allow-keywords;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	font-family: var(--font-family-primary);
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 10px;
+	/* stylelint-disable-next-line property-no-vendor-prefix */
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	color: var(--text-color);
+	font-size: 1.6rem;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+fieldset {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+@layer base {
+	:where(button) {
+		appearance: none;
+		background-color: transparent;
+		border: 0;
+		border-radius: 0;
+		padding: 0;
+	}
+
+	:where(h1, h2, h3, h4, h5, h6, p, ol, ul) {
+		margin-block: 0;
+	}
+
+	:where(ol, ul) {
+		list-style: none;
+		padding-inline: 0;
+	}
+
+	:where(a) {
+		color: var(--text-color);
+
+		&:focus-visible {
+			outline: 2px solid var(--text-color);
+			outline-offset: 2px;
+		}
+	}
+}
+
+.srOnly {
+	block-size: 1px;
+	clip-path: inset(50%);
+	inline-size: 1px;
+	inset-block-start: 0;
+	inset-inline-start: 0;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+}

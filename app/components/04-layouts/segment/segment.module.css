@@ -1,0 +1,21 @@
+@value --breakpoints: '../../../styles/modules/breakpoints.module.css';
+@value --bp-tiny, --bp-medium from --breakpoints;
+
+@layer layouts {
+	.segment {
+		--vt-padding: var(--spacing-m);
+
+		inline-size: 100%;
+		margin-inline: auto;
+		max-inline-size: var(--max-page-width);
+		padding-block: var(--vt-padding);
+
+		@media (--bp-tiny) {
+			--vt-padding: var(--spacing-l);
+		}
+
+		@media (--bp-medium) {
+			--vt-padding: var(--spacing-xl);
+		}
+	}
+}
