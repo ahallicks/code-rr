@@ -4,6 +4,7 @@ import { useLoaderData } from 'react-router';
 
 import { getCharactersData } from '~/services/get-characters.ts';
 
+import { CardList } from '~/components/01-atoms/card-list/card-list.tsx';
 import { Character } from '~/components/02-molecules/character/character.tsx';
 import { Segment } from '~/components/04-layouts/segment/segment.tsx';
 
@@ -29,9 +30,22 @@ export default function Characters(): React.ReactNode {
 
 			<Segment.Root>
 				<Segment.Container>
-					{characters.map((character, index) => (
-						<Character key={index} {...character} />
-					))}
+					<CardList>
+						{characters.map((character, index) => (
+							<Character.Container key={index}>
+								<Character.Image
+									image={character.image}
+									fullName={character.fullName}
+								/>
+
+								<Character.Name
+									fullName={character.fullName}
+									nickname={character.nickname}
+								/>
+								<Character.Link fullName={character.fullName} />
+							</Character.Container>
+						))}
+					</CardList>
 				</Segment.Container>
 			</Segment.Root>
 		</>

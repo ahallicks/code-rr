@@ -54,9 +54,24 @@ const setupTest = (overrides: TestOverrides = {}): TReturn => {
 		{
 			path: '/',
 			Component: () => (
-				<Character {...props}>
-					{props.children ?? 'Component'}
-				</Character>
+				<Character.Root>
+					<Character.Container>
+						<Character.Image
+							image={props.image}
+							fullName={props.fullName}
+						/>
+						<Character.Name
+							fullName={props.fullName}
+							nickname={props.nickname}
+						/>
+						<Character.Details
+							hogwartsHouse={props.hogwartsHouse}
+							interpretedBy={props.interpretedBy}
+							birthdate={props.birthdate}
+							children={props.children}
+						/>
+					</Character.Container>
+				</Character.Root>
 			),
 		},
 	]);

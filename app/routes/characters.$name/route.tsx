@@ -34,7 +34,24 @@ export default function CharacterPage(): React.ReactNode {
 
 			<Segment.Root>
 				<Segment.Container>
-					<Character {...character} />
+					<Character.Root>
+						<Character.Container>
+							<Character.Image
+								image={character.image}
+								fullName={character.fullName}
+							/>
+							<Character.Name
+								fullName={character.fullName}
+								nickname={character.nickname}
+							/>
+							<Character.Details
+								hogwartsHouse={character.hogwartsHouse}
+								interpretedBy={character.interpretedBy}
+								birthdate={character.birthdate}
+								children={character.children}
+							/>
+						</Character.Container>
+					</Character.Root>
 				</Segment.Container>
 			</Segment.Root>
 		</>

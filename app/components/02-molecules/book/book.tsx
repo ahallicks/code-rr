@@ -33,7 +33,8 @@ const BookTitle: React.FC<Pick<IBook, 'title' | 'originalTitle'>> = ({
 	originalTitle,
 }) => (
 	<hgroup>
-		<h2>{title}</h2> <h3>(Original Title: {originalTitle})</h3>
+		<h2>{title}</h2>
+		<h3>(Original Title: {originalTitle})</h3>
 	</hgroup>
 );
 
