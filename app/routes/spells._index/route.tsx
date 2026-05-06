@@ -4,6 +4,7 @@ import { useLoaderData } from 'react-router';
 
 import { getSpellsData } from '~/services/get-spells.ts';
 
+import { CardList } from '~/components/01-atoms/card-list/card-list.tsx';
 import { Spell } from '~/components/02-molecules/spell/spell.tsx';
 import { Segment } from '~/components/04-layouts/segment/segment.tsx';
 
@@ -29,9 +30,11 @@ export default function Spells(): React.ReactNode {
 
 			<Segment.Root>
 				<Segment.Container>
-					{spells.map((spell, index) => (
-						<Spell key={index} {...spell} />
-					))}
+					<CardList>
+						{spells.map((spell, index) => (
+							<Spell key={index} {...spell} />
+						))}
+					</CardList>
 				</Segment.Container>
 			</Segment.Root>
 		</>

@@ -1,6 +1,7 @@
 import { clsx } from 'clsx';
 
 import { ButtonLink } from '~/components/01-atoms/button/button.tsx';
+import { Card } from '~/components/01-atoms/card/card.tsx';
 
 import styles from './spell.module.css';
 
@@ -12,7 +13,7 @@ export interface ISpell {
 
 export const Spell: React.FC<ISpell> = ({ spell, use, className, ...rest }) => {
 	return (
-		<div
+		<Card
 			className={clsx(styles.base, className)}
 			data-e2e-id="spell"
 			{...rest}
@@ -25,6 +26,6 @@ export const Spell: React.FC<ISpell> = ({ spell, use, className, ...rest }) => {
 					<span className={styles.arrow}>&rarr;</span>
 				</ButtonLink>
 			</p>
-		</div>
+		</Card>
 	);
 };
