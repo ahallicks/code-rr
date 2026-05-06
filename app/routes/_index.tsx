@@ -18,7 +18,7 @@ export const loader = async (): Promise<{ homepage: IHomepage }> => {
 	}
 };
 
-export default function Spell(): React.ReactNode {
+export default function Homepage(): React.ReactNode {
 	const { homepage } = useLoaderData<typeof loader>();
 	return (
 		<>

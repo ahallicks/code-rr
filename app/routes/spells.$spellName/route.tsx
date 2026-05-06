@@ -21,7 +21,7 @@ export const loader = async ({
 	}
 };
 
-export default function Page(): React.ReactNode {
+export default function SpellPage(): React.ReactNode {
 	const { spell } = useLoaderData<typeof loader>();
 	return (
 		<>
