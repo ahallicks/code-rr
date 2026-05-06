@@ -1,6 +1,6 @@
 # Code React Router Boilerplate
 
-This is a React Router project using the latest version of React Router and React (and we like to keep it up to date as often as possible!):
+This is a React Router project using the latest version of React Router and React (and we like to keep it up to date as often as possible).
 
 ## At a glance
 
