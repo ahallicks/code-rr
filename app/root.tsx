@@ -20,6 +20,7 @@ import { Footer } from '~/components/02-molecules/footer/footer.tsx';
 import { Header } from '~/components/02-molecules/header/header.tsx';
 import { NotFound } from '~/components/04-layouts/404/404.tsx';
 
+import layerStyles from './layers.css?url';
 import './globals.css';
 
 export const links: LinksFunction = () => [
@@ -58,6 +59,13 @@ export const Structure = ({
 				content="width=device-width, initial-scale=1"
 			/>
 			<Meta />
+			{process.env.NODE_ENV === 'development' ? (
+				<link
+					rel="stylesheet"
+					href={layerStyles}
+					precedence="default"
+				/>
+			) : null}
 			<Links />
 		</head>
 		<body>
@@ -92,7 +100,7 @@ export function ErrorBoundary(): React.ReactNode {
 
 	if (isRouteErrorResponse(error)) {
 		status = error.status.toString();
-		message = error.status === 404 ? '404' : 'Error';
+		message = error.status === 404 ? 'Page not found' : 'Error';
 		details =
 			error.status === 404
 				? 'The requested page could not be found.'

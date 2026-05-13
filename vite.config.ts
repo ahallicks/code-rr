@@ -23,6 +23,7 @@ export default defineConfig({
 				name: 'unit',
 				environment: 'jsdom',
 				setupFiles: ['./tests/setup-env.ts', './tests/test-setup.ts'],
+				include: ['**/*.test.{ts,tsx}'],
 			},
 		},
 		// The second project will run the Storybook tests in a browser environment using Playwright
@@ -45,7 +46,7 @@ export default defineConfig({
 					instances: [{
 						browser: 'chromium'
 					}]
-				}
+				},
 			}
 		}]
 	}

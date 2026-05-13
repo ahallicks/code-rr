@@ -1,4 +1,8 @@
 @layer atoms {
+	.title {
+		margin-block-end: var(--spacing-m);
+	}
+
 	.base {
 		display: grid;
 		gap: var(--spacing-l);

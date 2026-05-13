@@ -22,15 +22,15 @@ export default function Books(): React.ReactNode {
 	const { homepage } = useLoaderData<typeof loader>();
 	return (
 		<>
-			<title>React Router - Code Boilerplate</title>
+			<title>The Books of Harry Potter</title>
 			<meta
 				name="description"
-				content="React Router - Code Boilerplate"
+				content="A collection of books from the Harry Potter series"
 			/>
 
 			<Segment.Root>
 				<Segment.Container>
-					<CardList>
+					<CardList title="The Books of Harry Potter">
 						{homepage.books.map((book) => (
 							<Book.Container key={`home-${book.title}`}>
 								<Book.Cover
