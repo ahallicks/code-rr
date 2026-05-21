@@ -1,6 +1,7 @@
 import type { IBook } from '../book/book.tsx';
 
 import { clsx } from 'clsx';
+import { Link } from 'react-router';
 
 import styles from './header.module.css';
 
@@ -20,28 +21,28 @@ export const Header: React.FC<IHeader> = ({ className, books, ...rest }) => {
 			<nav>
 				<ul>
 					<li>
-						<a href="/">Home</a>
+						<Link to="/">Home</Link>
 					</li>
 					<li>
-						<a href="/books">Books</a>
+						<Link to="/books">Books</Link>
 						<ul>
 							{books.map((book) => (
 								<li key={`header-${book.title}`}>
-									<a href={`/books/${book.index}`}>
+									<Link to={`/books/${book.index}`}>
 										{book.title}
-									</a>
+									</Link>
 								</li>
 							))}
 						</ul>
 					</li>
 					<li>
-						<a href="/characters">Characters</a>
+						<Link to="/characters">Characters</Link>
 					</li>
 					<li>
-						<a href="/houses">Houses</a>
+						<Link to="/houses">Houses</Link>
 					</li>
 					<li>
-						<a href="/spells">Spells</a>
+						<Link to="/spells">Spells</Link>
 					</li>
 				</ul>
 			</nav>
