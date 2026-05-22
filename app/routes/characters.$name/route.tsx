@@ -1,4 +1,4 @@
-import type { LoaderFunctionArgs } from 'react-router';
+import type { Route } from './+types/route.ts';
 import type { ICharacterData } from '~/services/get-characters.ts';
 
 import { useLoaderData } from 'react-router';
@@ -10,7 +10,7 @@ import { Segment } from '~/components/04-layouts/segment/segment.tsx';
 
 export const loader = async ({
 	params,
-}: LoaderFunctionArgs): Promise<ICharacterData> => {
+}: Route.LoaderArgs): Promise<ICharacterData> => {
 	try {
 		const character = await getCharacterData({
 			characterName: params.name ?? '',
