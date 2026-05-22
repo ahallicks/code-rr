@@ -1,4 +1,4 @@
-import type { LoaderFunctionArgs } from 'react-router';
+import type { Route } from './+types/route.ts';
 import type { IBookData } from '~/services/get-book.ts';
 
 import { useLoaderData } from 'react-router';
@@ -10,7 +10,7 @@ import { Segment } from '~/components/04-layouts/segment/segment.tsx';
 
 export const loader = async ({
 	params,
-}: LoaderFunctionArgs): Promise<IBookData> => {
+}: Route.LoaderArgs): Promise<IBookData> => {
 	try {
 		const book = await getBookData({ bookIndex: Number(params.index) });
 		return book;

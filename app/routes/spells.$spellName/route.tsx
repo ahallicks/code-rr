@@ -1,3 +1,4 @@
+import type { Route } from './+types/route.ts';
 import type { ISpellData } from '~/services/get-spells.ts';
 
 import { useLoaderData } from 'react-router';
@@ -9,9 +10,7 @@ import { Segment } from '~/components/04-layouts/segment/segment.tsx';
 
 export const loader = async ({
 	params,
-}: {
-	params: { spellName: string };
-}): Promise<ISpellData> => {
+}: Route.LoaderArgs): Promise<ISpellData> => {
 	try {
 		const spell = await getSpellData({ spellName: params.spellName });
 		return spell;
