@@ -1,4 +1,4 @@
-import type { LoaderFunctionArgs } from 'react-router';
+import type { Route } from './+types/route.ts';
 import type { IHouseData } from '~/services/get-houses.ts';
 
 import { useLoaderData } from 'react-router';
@@ -10,7 +10,7 @@ import { Segment } from '~/components/04-layouts/segment/segment.tsx';
 
 export const loader = async ({
 	params,
-}: LoaderFunctionArgs): Promise<IHouseData> => {
+}: Route.LoaderArgs): Promise<IHouseData> => {
 	if (!params.houseName) {
 		throw new Response('House name is required', { status: 400 });
 	}
