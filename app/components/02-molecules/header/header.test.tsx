@@ -3,6 +3,7 @@ import type { UserEvent } from '@testing-library/user-event';
 
 import { cleanup, render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
+import { createRoutesStub } from 'react-router';
 import { checkA11y } from 'tests/test-utils.ts';
 import { afterEach, describe, expect, test, vi } from 'vitest';
 
@@ -47,9 +48,17 @@ const getDefaultProps = (overrides: Partial<IHeader> = {}): IHeader => ({
 
 const setupTest = (overrides: TestOverrides = {}): TReturn => {
 	const props = getDefaultProps(overrides.props);
-	const utils = render(
-		<Header {...props}>{props.children ?? 'Code React Router'}</Header>,
-	);
+	const Stub = createRoutesStub([
+		{
+			path: '/',
+			Component: () => (
+				<Header {...props}>
+					{props.children ?? 'Code React Router'}
+				</Header>
+			),
+		},
+	]);
+	const utils = render(<Stub />);
 	return {
 		...utils,
 		props,
