@@ -6,4 +6,11 @@ export default {
 	ssr: true,
 	// Prerender the following routes at build time, to enable static site generation (SSG)
 	prerender: [],
+	future: {
+		v8_middleware: true,
+		v8_splitRouteModules: true,
+		v8_viteEnvironmentApi: true,
+		v8_passThroughRequests: true,
+		v8_trailingSlashAwareDataRequests: true,
+	},
 } satisfies Config;
