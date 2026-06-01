@@ -1,8 +1,6 @@
 import type { Route } from './+types/route.ts';
 import type { IHouseData } from '~/services/get-houses.ts';
 
-import { useLoaderData } from 'react-router';
-
 import { getHouseData } from '~/services/get-houses.ts';
 
 import { House } from '~/components/02-molecules/house/house.tsx';
@@ -23,8 +21,10 @@ export const loader = async ({
 	}
 };
 
-export default function HousePage(): React.ReactNode {
-	const { house } = useLoaderData<typeof loader>();
+export default function HousePage({
+	loaderData,
+}: Route.ComponentProps): React.ReactNode {
+	const { house } = loaderData;
 	return (
 		<>
 			<title>{house.house}</title>

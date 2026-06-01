@@ -1,6 +1,5 @@
+import type { Route } from './+types/route.ts';
 import type { ICharactersData } from '~/services/get-characters.ts';
-
-import { useLoaderData } from 'react-router';
 
 import { getCharactersData } from '~/services/get-characters.ts';
 
@@ -18,8 +17,10 @@ export const loader = async (): Promise<ICharactersData> => {
 	}
 };
 
-export default function Characters(): React.ReactNode {
-	const { characters } = useLoaderData<typeof loader>();
+export default function Characters({
+	loaderData,
+}: Route.ComponentProps): React.ReactNode {
+	const { characters } = loaderData;
 	return (
 		<>
 			<title>Houses in Harry Potter</title>

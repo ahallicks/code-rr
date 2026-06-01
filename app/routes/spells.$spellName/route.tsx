@@ -1,8 +1,6 @@
 import type { Route } from './+types/route.ts';
 import type { ISpellData } from '~/services/get-spells.ts';
 
-import { useLoaderData } from 'react-router';
-
 import { getSpellData } from '~/services/get-spells.ts';
 
 import { Spell } from '~/components/02-molecules/spell/spell.tsx';
@@ -20,14 +18,16 @@ export const loader = async ({
 	}
 };
 
-export default function SpellPage(): React.ReactNode {
-	const { spell } = useLoaderData<typeof loader>();
+export default function SpellPage({
+	loaderData,
+}: Route.ComponentProps): React.ReactNode {
+	const { spell } = loaderData;
 	return (
 		<>
-			<title>Spells in Harry Potter</title>
+			<title>{spell.spell}</title>
 			<meta
 				name="description"
-				content="All about the spells in Harry Potter"
+				content={`All about the ${spell.spell} spell in Harry Potter`}
 			/>
 
 			<Segment.Root>

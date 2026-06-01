@@ -1,10 +1,8 @@
-import type { LoaderFunctionArgs } from 'react-router';
-
-import { useLoaderData } from 'react-router';
+import type { Route } from './+types/$.ts';
 
 export const loader = async ({
 	params,
-}: LoaderFunctionArgs): Promise<{ filePath: string }> => {
+}: Route.LoaderArgs): Promise<{ filePath: string }> => {
 	const filePath = params['*'];
 
 	if (!filePath) {
@@ -28,8 +26,10 @@ export const loader = async ({
 	//*/
 };
 
-export default function Page(): React.ReactNode {
-	const { filePath } = useLoaderData<typeof loader>();
+export default function Page({
+	loaderData,
+}: Route.ComponentProps): React.ReactNode {
+	const { filePath } = loaderData;
 	return (
 		<>
 			<title>{filePath}</title>

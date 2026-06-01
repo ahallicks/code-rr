@@ -1,6 +1,5 @@
+import type { Route } from './+types/route.ts';
 import type { IHomepage } from '~/services/get-homepage.ts';
-
-import { useLoaderData } from 'react-router';
 
 import { getHomepage } from '~/services/get-homepage.ts';
 
@@ -18,8 +17,10 @@ export const loader = async (): Promise<{ homepage: IHomepage }> => {
 	}
 };
 
-export default function Books(): React.ReactNode {
-	const { homepage } = useLoaderData<typeof loader>();
+export default function Books({
+	loaderData,
+}: Route.ComponentProps): React.ReactNode {
+	const { homepage } = loaderData;
 	return (
 		<>
 			<title>The Books of Harry Potter</title>

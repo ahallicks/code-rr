@@ -1,6 +1,5 @@
+import type { Route } from './+types/route.ts';
 import type { IHousesData } from '~/services/get-houses.ts';
-
-import { useLoaderData } from 'react-router';
 
 import { getHousesData } from '~/services/get-houses.ts';
 
@@ -18,8 +17,10 @@ export const loader = async (): Promise<IHousesData> => {
 	}
 };
 
-export default function Houses(): React.ReactNode {
-	const { houses } = useLoaderData<typeof loader>();
+export default function Houses({
+	loaderData,
+}: Route.ComponentProps): React.ReactNode {
+	const { houses } = loaderData;
 	return (
 		<>
 			<title>Houses in Harry Potter</title>
