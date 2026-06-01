@@ -1,8 +1,6 @@
 import type { Route } from './+types/route.ts';
 import type { IBookData } from '~/services/get-book.ts';
 
-import { useLoaderData } from 'react-router';
-
 import { getBookData } from '~/services/get-book.ts';
 
 import { Book } from '~/components/02-molecules/book/book.tsx';
@@ -20,8 +18,10 @@ export const loader = async ({
 	}
 };
 
-export default function BookPage(): React.ReactNode {
-	const { book } = useLoaderData<typeof loader>();
+export default function BookPage({
+	loaderData,
+}: Route.ComponentProps): React.ReactNode {
+	const { book } = loaderData;
 	return (
 		<>
 			<title>{book.title}</title>

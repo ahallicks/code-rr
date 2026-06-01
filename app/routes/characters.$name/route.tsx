@@ -1,8 +1,6 @@
 import type { Route } from './+types/route.ts';
 import type { ICharacterData } from '~/services/get-characters.ts';
 
-import { useLoaderData } from 'react-router';
-
 import { getCharacterData } from '~/services/get-characters.ts';
 
 import { Character } from '~/components/02-molecules/character/character.tsx';
@@ -22,8 +20,10 @@ export const loader = async ({
 	}
 };
 
-export default function CharacterPage(): React.ReactNode {
-	const { character } = useLoaderData<typeof loader>();
+export default function CharacterPage({
+	loaderData,
+}: Route.ComponentProps): React.ReactNode {
+	const { character } = loaderData;
 	return (
 		<>
 			<title>{character.fullName}</title>

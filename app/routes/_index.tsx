@@ -1,6 +1,5 @@
+import type { Route } from './+types/_index.ts';
 import type { IHomepage } from '~/services/get-homepage.ts';
-
-import { useLoaderData } from 'react-router';
 
 import { getHomepage } from '~/services/get-homepage.ts';
 
@@ -18,8 +17,10 @@ export const loader = async (): Promise<{ homepage: IHomepage }> => {
 	}
 };
 
-export default function Homepage(): React.ReactNode {
-	const { homepage } = useLoaderData<typeof loader>();
+export default function Homepage({
+	loaderData,
+}: Route.ComponentProps): React.ReactNode {
+	const { homepage } = loaderData;
 	return (
 		<>
 			<title>React Router - Code Boilerplate</title>

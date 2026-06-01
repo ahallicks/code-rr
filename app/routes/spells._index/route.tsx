@@ -1,6 +1,5 @@
+import type { Route } from './+types/route.ts';
 import type { ISpellsData } from '~/services/get-spells.ts';
-
-import { useLoaderData } from 'react-router';
 
 import { getSpellsData } from '~/services/get-spells.ts';
 
@@ -18,8 +17,10 @@ export const loader = async (): Promise<ISpellsData> => {
 	}
 };
 
-export default function Spells(): React.ReactNode {
-	const { spells } = useLoaderData<typeof loader>();
+export default function Spells({
+	loaderData,
+}: Route.ComponentProps): React.ReactNode {
+	const { spells } = loaderData;
 	return (
 		<>
 			<title>Spells in Harry Potter</title>
