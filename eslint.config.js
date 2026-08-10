@@ -126,6 +126,7 @@ const config = [
 			],
 			'import/no-unresolved': 'error',
 			'import/order': 'off',
+			'import-x/consistent-type-specifier-style': ['warn', 'prefer-top-level'],
 			'import-x/order': [
 				// type imports
 				// npm packages
