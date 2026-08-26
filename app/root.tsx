@@ -1,5 +1,5 @@
+import type { Route } from './+types/root.ts';
 import type { IGlobalData } from './services/get-global-data.ts';
-import type { LinksFunction } from 'react-router';
 
 import {
 	Links,
@@ -23,7 +23,7 @@ import { NotFound } from '~/components/04-layouts/404/404.tsx';
 import layerStyles from './layers.css?url';
 import './globals.css';
 
-export const links: LinksFunction = () => [
+export const links: Route.LinksFunction = () => [
 	{ rel: 'preconnect', href: 'https://fonts.googleapis.com' },
 	{
 		rel: 'preconnect',
@@ -46,47 +46,46 @@ export const loader = async (): Promise<IGlobalData> => {
 	}
 };
 
-export const Structure = ({
-	children,
-}: {
-	children: React.ReactNode;
-}): React.ReactNode => (
-	<html lang="en">
-		<head>
-			<meta charSet="utf-8" />
-			<meta
-				name="viewport"
-				content="width=device-width, initial-scale=1"
-			/>
-			<Meta />
-			{process.env.NODE_ENV === 'development' ? (
-				<link
-					rel="stylesheet"
-					href={layerStyles}
-					precedence="default"
-				/>
-			) : null}
-			<Links />
-		</head>
-		<body>
-			<Axe />
-			{children}
-			<ScrollRestoration />
-			<Scripts />
-		</body>
-	</html>
-);
-
-export default function Layout(): React.ReactNode {
-	const { books } = useLoaderData<typeof loader>();
+export function Layout({ children }: React.PropsWithChildren): React.ReactNode {
 	return (
-		<Structure>
+		<html lang="en">
+			<head>
+				<meta charSet="utf-8" />
+				<meta
+					name="viewport"
+					content="width=device-width, initial-scale=1"
+				/>
+				<Meta />
+				{process.env.NODE_ENV === 'development' ? (
+					<link
+						rel="stylesheet"
+						href={layerStyles}
+						precedence="default"
+					/>
+				) : null}
+				<Links />
+			</head>
+			<body>
+				<Axe />
+				{children}
+				<ScrollRestoration />
+				<Scripts />
+			</body>
+		</html>
+	);
+}
+
+export default function (): React.ReactNode {
+	const { books } = useLoaderData<typeof loader>();
+
+	return (
+		<>
 			<Header books={books} />
 			<main id="main" className="flex-1">
 				<Outlet />
 			</main>
 			<Footer />
-		</Structure>
+		</>
 	);
 }
 
@@ -111,13 +110,11 @@ export function ErrorBoundary(): React.ReactNode {
 	}
 
 	return (
-		<Structure>
-			<NotFound
-				status={status}
-				details={details}
-				message={message}
-				stack={stack}
-			/>
-		</Structure>
+		<NotFound
+			status={status}
+			details={details}
+			message={message}
+			stack={stack}
+		/>
 	);
 }
