@@ -1,7 +1,10 @@
 import { clsx } from 'clsx';
+import { useState } from 'react';
 
 import { ButtonLink } from '~/components/01-atoms/button/button.tsx';
 import { Card } from '~/components/01-atoms/card/card.tsx';
+
+import { Tabs } from '../tabs/tabs.tsx';
 
 import styles from './house.module.css';
 
@@ -23,6 +26,7 @@ export const House: React.FC<IHouse> = ({
 	className,
 	...rest
 }) => {
+	const [ActiveTab, setActiveTab] = useState('');
 	return (
 		<Card
 			className={clsx(styles.base, className)}
@@ -43,5 +47,31 @@ export const House: React.FC<IHouse> = ({
 				/>
 			</p>
 		</Card>
+		// <>
+		// 	<Tabs.List>
+		// 		<Tabs.Tab id="house"
+		// 			isSelected={
+		// 				ActiveTab === 'house'
+		// 			}
+		// 			onTabChange={setActiveTab}
+		// 		>
+		// 			{house}
+		// 		</Tabs.Tab>
+
+		// 	</Tabs.List>
+		// 	<Tabs.Panel
+		// 		id="house"
+		// 		isSelected={ActiveTab === 'house'}
+		// 	>
+		// 		<p>
+		// 			<ButtonLink
+		// 				href={`/houses/${house.toLowerCase()}`}
+		// 				text={`Learn more about ${house}`}
+		// 				variation="primary"
+		// 			/>
+		// 		</p>
+		// 	</Tabs.Panel>
+
+		// </>
 	);
 };
